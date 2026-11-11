@@ -8,8 +8,7 @@
   const markSolved = n => { try { const s = new Set(solved()); s.add(n); localStorage.setItem('busqueda-ok', JSON.stringify([...s])); } catch {} };
 
   function header(n) {
-    const dots = Array.from({ length: total }, (_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('');
-    return `<div class="top"><span>${n === total ? 'Final' : `Pista ${n} de ${total}`}</span><span class="dots">${dots}</span></div>`;
+    return `<div class="top"><span>${n === total ? 'La última' : `Pista ${n}`}</span><span>💌</span></div>`;
   }
   function frame(n, p) {
     app.innerHTML = `${header(n)}<h1>${p.titulo}</h1>${p.texto ? `<p>${p.texto}</p>` : ''}<div id="body"></div><div id="after"></div>`;
@@ -543,7 +542,7 @@
   }
   function portada() {
     app.innerHTML = `<div class="top"><span>Para ${B.para}</span><span></span></div><h1>Tienes una <em>búsqueda</em> por delante</h1>
-      <p>Hay ${total} tarjetas escondidas. Cada una tiene un código: escanéalo con la cámara y te dirá dónde está la siguiente. Al final hay un candado.</p>
+      <p>Hay tarjetas escondidas por la casa. Cada una tiene un código: escanéalo con la cámara, supera el reto y te dirá dónde está la siguiente. Al final te espera una sorpresa.</p>
       <a class="btn" style="text-align:center;text-decoration:none;display:block" href="#1">Empezar</a>`;
   }
 
